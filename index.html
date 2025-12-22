@@ -6,11 +6,62 @@
     <title>World Clock Project</title>
   </head>
   <style>
+    body {
+      background: #f9f7fe;
+      font-family: sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      display: block;
+      margin: 60px auto;
+      padding: 30px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      background: white;
+      border-radius: 12px;
+    }
     h1 {
       text-align: center;
+      font-family: sans-serif;
+      font-size: 32px;
+    }
+    h2 {
+      margin: 0 0 6px;
+      font-size: 24px;
+    }
+    select {
+      display: block;
+      width: 50%;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+    .city {
+      display: flex;
+      justify-content: space-between;
+      margin: 17px 0;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+      padding: 25px 0;
+    }
+    .city:last-child {
+      border: none;
+    }
+    .date {
+      opacity: 0.7;
+    }
+    .time {
+      font-size: 34px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+    .small {
+      font-size: 14.5px;
+      vertical-align: middle;
     }
     footer {
       text-align: center;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.4);
     }
   </style>
   <body>
@@ -28,20 +79,52 @@
         </select>
 
         <div class="city">
-          <h2>Philadelphia</h2>
-          <div class="date">Jan 3rd 2026</div>
-          <div class="time">12:00pm</div>
+          <div>
+            <h2>Philadelphia</h2>
+            <div class="date">Jan 3rd 2026</div>
+          </div>
+          <div class="time">
+            12:00
+            <span class="small">PM</span>
+          </div>
         </div>
 
         <div class="city">
-          <h2>Vancouver</h2>
-          <div class="date">Jan 3rd 2026</div>
-          <div class="time">12:00pm</div>
+          <div>
+            <h2>Vancouver</h2>
+            <div class="date">Jan 3rd 2026</div>
+          </div>
+          <div class="time">
+            12:00
+            <span class="small">PM</span>
+          </div>
+        </div>
+
+        <div class="city">
+          <div>
+            <h2>Sydney</h2>
+            <div class="date">Jan 3rd 2026</div>
+          </div>
+          <div class="time">
+            12:00
+            <span class="small">PM</span>
+          </div>
+        </div>
+
+        <div class="city">
+          <div>
+            <h2>Santiago</h2>
+            <div class="date">Jan 3rd 2026</div>
+          </div>
+          <div class="time">
+            12:00
+            <span class="small">PM</span>
+          </div>
         </div>
       </main>
     </div>
     <footer>
-      Coded by Helene Huynh and is open-sourced on
+      Coded by <strong>Helene Huynh</strong> and is open-sourced on
       <a href="https://github.com/hhuynh-15/World-Clock-Project" target="_blank"
         >Github</a
       >.
