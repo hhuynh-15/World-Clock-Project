@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.6.0/moment-timezone-with-data-1970-2030.js"></script>
     <title>World Clock Project</title>
   </head>
   <style>
@@ -54,7 +56,7 @@
       font-weight: bold;
       font-family: sans-serif;
     }
-    .small {
+    div small {
       font-size: 14.5px;
       vertical-align: middle;
     }
@@ -73,52 +75,46 @@
         <select name="" id="">
           <option value="">Choose a city...</option>
           <option value="">Philadelphia</option>
-          <option value="">Vancouver</option>
-          <option value="">Sydney</option>
+          <option value="">Paris</option>
+          <option value="">Hong Kong</option>
           <option value="">Santiago</option>
         </select>
 
-        <div class="city">
+        <div class="city" id="philadelphia">
           <div>
             <h2>Philadelphia</h2>
-            <div class="date">Jan 3rd 2026</div>
+            <div class="date"></div>
           </div>
-          <div class="time">
-            12:00
-            <span class="small">PM</span>
-          </div>
+          <div class="time"></div>
         </div>
 
-        <div class="city">
+        <div class="city" id="paris">
           <div>
-            <h2>Vancouver</h2>
-            <div class="date">Jan 3rd 2026</div>
+            <h2>Paris</h2>
+            <div class="date"></div>
           </div>
-          <div class="time">
-            12:00
-            <span class="small">PM</span>
-          </div>
+          <div class="time"></div>
         </div>
 
-        <div class="city">
+        <div class="city" id="hong-kong">
           <div>
-            <h2>Sydney</h2>
-            <div class="date">Jan 3rd 2026</div>
+            <h2>Hong Kong</h2>
+            <div class="date">January 3rd, 2026</div>
           </div>
           <div class="time">
             12:00
-            <span class="small">PM</span>
+            <small>PM</small>
           </div>
         </div>
 
-        <div class="city">
+        <div class="city" id="santiago">
           <div>
             <h2>Santiago</h2>
-            <div class="date">Jan 3rd 2026</div>
+            <div class="date">January 3rd, 2026</div>
           </div>
           <div class="time">
             12:00
-            <span class="small">PM</span>
+            <small>PM</small>
           </div>
         </div>
       </main>
@@ -129,5 +125,29 @@
         >Github</a
       >.
     </footer>
+    <script>
+      function updateTime() {
+        let phillyElement = document.querySelector("#philadelphia");
+        let phillyTime = moment().tz("America/New_York");
+        let phillyDateElement = phillyElement.querySelector(".date");
+        phillyDateElement.innerHTML = phillyTime.format("MMMM Do, YYYY");
+        let phillyTimeElement = phillyElement.querySelector(".time");
+        phillyTimeElement.innerHTML = `${phillyTime.format(
+          "h:mm:ss"
+        )} <small>${phillyTime.format("A")}</small>`;
+
+        let parisElement = document.querySelector("#paris");
+        let parisTime = moment().tz("Europe/Paris");
+        let parisDateElement = parisElement.querySelector(".date");
+        parisDateElement.innerHTML = parisTime.format("MMMM Do, YYYY");
+        let parisTimeElement = parisElement.querySelector(".time");
+        parisTimeElement.innerHTML = `${parisTime.format(
+          "h:mm:ss"
+        )} <small>${parisTime.format("A")}</small>`;
+      }
+
+      setInterval(updateTime, 1000);
+      updateTime();
+    </script>
   </body>
 </html>
